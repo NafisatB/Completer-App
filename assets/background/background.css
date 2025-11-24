@@ -1,0 +1,121 @@
+.bg__container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/assets/images/background.svg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.left__overlay{
+    background-color: rgba(242, 244, 245, 0.795);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.glow{
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(18px);                
+    pointer-events: none;
+    animation: pulse 1.8s infinite ease-out;           /* stretch full width and height */
+}
+
+.orange{
+    top: 60px;     
+    right: 70px;
+    background:oklch(84.951% 0.17285 92.708);
+    color: oklch(84.951% 0.17285 92.708);
+}
+
+.blue{
+    top: 230px;     
+    left: 90px;
+    background:oklch(0.546 0.245 262.881);
+    color: oklch(0.546 0.245 262.881);
+}
+
+.green{
+    bottom: 130px;     
+    left: 130px;
+    background:oklch(0.765 0.177 163.223);
+    color: oklch(0.765 0.177 163.223);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 currentColor;
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 20px rgba(0, 200, 83, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 200, 83, 0);
+    }
+}
+
+
+
+.circle__wrapper__top {
+    width: 45px;          
+    height: 45px;
+    position: absolute;   
+    top: 150px;
+    left: 60px;
+    border: 3px solid oklch(0.785 0.115 274.713);
+    border-radius: 50%; 
+    opacity: 0.4;     
+}
+
+.circle__wrapper__bottom{
+    width: 60px;          
+    height: 60px;
+    position: absolute;   
+    bottom: 130px;
+    right: 70px;
+    border: 3px solid oklch(84.951% 0.17285 92.708);
+    border-radius: 50%; 
+    opacity: 0.3;
+}
+
+.triangle__up {
+    stroke: oklch(0.785 0.115 274.713);
+    position: absolute;
+    top: 400px;
+    right: 400px;
+}
+
+.location__wrapper {
+    fill: oklch(0.765 0.177 163.223);
+    width: 40px;
+    position: absolute;   
+    top: 100px;
+    right: 400px;
+    color: oklch(0.765 0.177 163.223);
+    animation: bounce 0.9s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);       /* fast drop */
+    }
+
+}
+
+
+

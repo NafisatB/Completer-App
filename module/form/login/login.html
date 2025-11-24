@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/module/form/login/login.css">
+<script type="module" src="../../../component/input-comp/input-comp.js"></script>
+<script type="module" src="../../../component/btn-comp/btn-comp.js"></script>
+
+<div id="login" class="login-container login">
+<form action="" class="form-box ">
+</input-component>
+    <input-component
+    label="Email Address*"
+    type="email"
+    id="user_email"
+    placeholder="hello@example.com"
+    icon="../../../assets/images/envelope.svg"
+>
+
+</input-component>
+    <input-component
+    label="Password*"
+    type="password"
+    id="password"
+    placeholder="******"
+    icon="../../../assets/images/padlock.svg"
+>
+</input-component>
+
+    <!-- <div data-import="/component/input/name.html"></div>
+    <div data-import="/component/input/email.html"></div>
+   <div data-import="/component/input/password.html"></div> -->
+  
+   <div class="login-btn">
+    <div class="btn-box">
+          <btn-component
+     icon="../../../assets/images/help.svg"
+        style="
+    --btn-width:100%; 
+    --btn-height:45px; 
+    --btn-border-radius:50%;
+     "
+     text="Help?" 
+     />
+    </div>
+    <div class="btn-box">
+    <btn-component
+    onclick="clickMe2()"
+     style="
+    --btn-width:100%; 
+    --btn-height:45px; 
+    --btn-border-radius:50%;
+    --btn-bg:#f3b500;
+    --btn-border:#f3b500;
+     "
+     text="Next Step" 
+     ></btn-component>
+
+    </div>
+ 
+  </div>
+</form>
+</div>
+
+<script>
+        function clickMe2(){
+        alert("Working!");
+        window.location.href = '/dashboard.html';
+    }
+</script>

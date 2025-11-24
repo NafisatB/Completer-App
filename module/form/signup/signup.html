@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/module/form/login/login.css">
+<link rel="stylesheet" href="/module/form/signup/signup.css">
+<script type="module" src="../../../component/input-comp/input-comp.js"></script>
+<script type="module" src="../../../component/btn-comp/btn-comp.js"></script>
+
+<div id="signup" class="login-container signup">
+<form action="" class="form-box ">
+
+</input-component>
+    <input-component
+    label="Full Name*"
+    type="text"
+    id="fullName"
+    placeholder="John Doe"
+    icon="../../../assets/images/user.png"
+>
+</input-component>
+    <input-component
+    label="Email Address*"
+    type="email"
+    id="user_email"
+    placeholder="hello@example.com"
+    icon="../../../assets/images/envelope.svg"
+>
+
+</input-component> 
+<div>
+        <input-component
+    label="Password*"
+    type="password"
+    id="password"
+    placeholder="******"
+    icon="../../../assets/images/padlock.svg"
+    
+>
+</input-component>
+<small>Password must be at least 6 characters long</small>
+</div>
+
+
+
+    <!-- <div data-import="/component/input/name.html"></div>
+    <div data-import="/component/input/email.html"></div>
+   <div data-import="/component/input/password.html"></div> -->
+  
+   <div class="login-btn">
+    <div class="btn-box">
+          <btn-component
+     icon="../../../assets/images/help.svg"
+        style="
+    --btn-width:100%; 
+    --btn-height:45px; 
+    --btn-border-radius:50%;
+     "
+     text="Help?" 
+     />
+    </div>
+    <div onclick="clickMe3()" class="btn-box">
+    <btn-component
+    onclick="clickMe3()"
+     style="
+    --btn-width:100%; 
+    --btn-height:45px; 
+    --btn-border-radius:50%;
+    --btn-bg:#f3b500;
+    --btn-border:#f3b500;
+     "
+     text="Create Account" 
+     ></btn-component>
+
+    </div>
+  </div>
+</form>
+</div>
+
+<!-- <script>
+        function clickMe3(){
+        window.location.href = '/module/form/login/login.html'
+    }
+</script> -->

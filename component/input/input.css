@@ -1,0 +1,26 @@
+.input-field {
+    background: white;               /* white background */
+    border: 1px solid #d1d5db;
+    width: 100%;       /* thin light-gray outline */
+    height: 50px;
+    margin: 15px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 10px;
+}
+
+.input-field i {
+    color: #777;                     /* icon color */
+    font-size: 18px;
+}
+
+.input-field input {
+    width: 100%;
+    background: transparent;         /* keep inside white */
+    border: none;                    /* remove default border */
+    outline: none;                   /* remove blue browser outline */
+    font-size: 16px;
+    color: #333;
+}

@@ -1,0 +1,17 @@
+.hero-text{
+    line-height: 36px;
+    text-align: center;
+    color: #101828;
+    transition: opacity 0.3s ease;
+}
+
+.hero-text h1{
+    margin-bottom: 0;
+}
+
+.hero-text > p{
+    margin-top: 7px;
+    line-height: 24px;
+    text-align: center;
+    color: #4a5565;
+}
