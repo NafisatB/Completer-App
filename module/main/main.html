@@ -1,11 +1,45 @@
 <link rel="stylesheet" href="/module/main/main.css">
+<script type="module" src="../../component/card-main-comp/card-main.js"></script>
 
 <div class="dashboard__container">
 
-  <div>
-  <h1>Good morning, Babamusa Nafisat!</h1>
-  <p>Here's what's happening with your productivity today</p>
-</div>
+  <div class="dashboard-header">
+    <h1>Good morning, Babamusa Nafisat!</h1>
+    <p>Here's what's happening with your productivity today</p>
+  </div>
+
+  <div class="dashboard-cards">
+    <card-component 
+      title="Active Tasks" 
+      value="0" 
+      subtext="0 completed" 
+      icon="/assets/images/icons-dashboard/svg/checkbox_2.svg">
+    </card-component>
+
+    <card-component 
+      title="Total Expenses" 
+      value="$0.00" 
+      subtext="This period" 
+      icon="/assets/images/icons-dashboard/svg/dollar_2.svg"
+      icon-bg="oklch(0.609 0.126 221.723)">
+    </card-component>
+
+    <card-component 
+      title="Total Notes" 
+      value="0" 
+      subtext="Saved notes" 
+      icon="/assets/images/icons-dashboard/svg/note_3.svg"
+      icon-bg="oklch(0.627 0.194 149.214)">
+    </card-component>
+
+    <card-component 
+      title="Completion Rate" 
+      value="0%" 
+      subtext="Task completion" 
+      icon="/assets/images/icons-dashboard/svg/trend.svg"
+      icon-bg= "#0000ff">
+      
+    </card-component>
+  </div>
 
 </div>
-

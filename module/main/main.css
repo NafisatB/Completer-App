@@ -1,23 +1,36 @@
 .dashboard__container {
     padding: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 30px; /* space between header and cards */
+    font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
-.dashboard__container > div {
+/* Header styles */
+.dashboard-header {
     display: flex;
     flex-direction: column;
-    gap: 6px; /* space between h1 and p */
+    gap: 6px;
+    align-items: left; /* center header content */
+    text-align: left;
 }
 
-.dashboard__container h1 {
+.dashboard-header h1 {
     margin: 0;
+    font-size: 28px;
     line-height: 1.5;
 }
 
-.dashboard__container p {
+.dashboard-header p {
     margin: 0;
-    line-height: 1.5;
-    color: oklch(0.446 0.03 256.802)
+    font-size: 16px;
+    color: oklch(0.446 0.03 256.802);
+}
+
+/* Cards container */
+.dashboard-cards {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    justify-content: center; /* center the cards horizontally */
 }

@@ -1,119 +1,79 @@
-class SidebarButtonComponent extends HTMLElement {
-  static get observedAttributes() { return ["text", "icon", "id"]; }
-
+class CardComponent extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-
-    this.shadowRoot.innerHTML = `
-      <style>
-        :host {
-          display: flex;
-          width: 100%;
-        }
-
-        .sidebar-btn-container {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 8px;
-          padding: 0 20px;
-          border-radius: 6px;
-          background: #fff;
-          color: #000;
-          cursor: pointer;
-          width: 100%;
-          min-height: 40px;
-          transition: background 0.2s, color 0.2s;
-        }
-
-        .sidebar-btn-container img {
-          width: 20px;
-          height: 20px;
-        }
-
-        .sidebar-btn-container span {
-          line-height: 1;
-        }
-
-        /* Hover effect */
-        .sidebar-btn-container:hover {
-          background-color: #f9fafb;
-          color: #fff;
-        }
-
-        /* Active state */
-        .sidebar-btn-container.active {
-          color: #155dfc;             /* blue text */
-          background-color:  #eff5fcff;
-        }
-      </style>
-
-      <div class="sidebar-btn-container">
-        <img alt="">
-        <span></span>
-      </div>
-    `;
-
-    this.textEl = this.shadowRoot.querySelector("span");
-    this.imgEl = this.shadowRoot.querySelector("img");
-    this.btnEl = this.shadowRoot.querySelector(".sidebar-btn-container");
+    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
-    this._updateFromAttributes();
+    const title = this.getAttribute('title') || 'Card Title';
+    const value = this.getAttribute('value') || '0';
+    const subtext = this.getAttribute('subtext') || '';
+    const icon = this.getAttribute('icon') || '';
+    const iconBg = this.getAttribute('icon-bg') || '#155dfc'; // default background
 
-    this.btnEl.addEventListener("click", () => {
-      // Find the top-level sidebar container
-      const sidebarContainer = this.closest(".sidebar-area");
-
-      if (sidebarContainer) {
-        // Remove active from all buttons in the sidebar
-        const allButtons = sidebarContainer.querySelectorAll("sidebar-btn-component");
-        allButtons.forEach(btn => {
-          btn.shadowRoot.querySelector(".sidebar-btn-container").classList.remove("active");
-        });
-      }
-
-      // Activate this button
-      this.btnEl.classList.add("active");
-
-      // Dispatch click for external listeners
-      this.dispatchEvent(new MouseEvent("click", { bubbles: true, composed: true }));
-    });
-  }
-
-  attributeChangedCallback(name, oldVal, newVal) {
-    this._updateAttr(name, newVal);
-  }
-
-  _updateFromAttributes() {
-    this._updateAttr("text", this.getAttribute("text"));
-    this._updateAttr("icon", this.getAttribute("icon"));
-    this._updateAttr("id", this.getAttribute("id"));
-  }
-
-  _updateAttr(name, value) {
-    switch (name) {
-      case "text":
-        this.textEl.textContent = value ?? "";
-        this.textEl.style.display = value ? "inline-block" : "none";
-        break;
-      case "icon":
-        if (value) {
-          this.imgEl.src = value;
-          this.imgEl.style.display = "inline-block";
-        } else {
-          this.imgEl.removeAttribute("src");
-          this.imgEl.style.display = "none";
+    this.shadowRoot.innerHTML = `
+      <style>
+        .dashboard-card {
+          background-color: #fff;
+          border-radius: 12px;
+          border: 2px solid #eaeaea;
+          padding: 16px;
+          width: 180px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-family: ui-sans-serif, system-ui, sans-serif;
         }
-        break;
-      case "id":
-        if (value) this.btnEl.id = value;
-        else this.btnEl.removeAttribute("id");
-        break;
-    }
+        .card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+        .card-title {
+          font-size: 14px;
+          font-weight: 500;
+          color: #333;
+        }
+        .card-icon img {
+          width: 28px;
+          height: 28px;
+          border-radius: 6px;
+          background-color: ${iconBg};
+          padding: 4px;
+        }
+        .card-body {
+          display: flex;
+          flex-direction: column;
+        }
+        .card-value {
+          font-size: 24px;
+          font-weight: 600;
+          margin: 0;
+          color: #111;
+        }
+        .card-subtext {
+          font-size: 12px;
+          color: #666;
+          margin-top: 2px;
+        }
+      </style>
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span class="card-title">${title}</span>
+          <div class="card-icon">
+            <img src="${icon}" alt="Icon">
+          </div>
+        </div>
+        <div class="card-body">
+          <h2 class="card-value">${value}</h2>
+          <span class="card-subtext">${subtext}</span>
+        </div>
+      </div>
+    `;
   }
 }
 
-customElements.define("sidebar-btn-component", SidebarButtonComponent);
+// Define the component
+customElements.define('card-component', CardComponent);
