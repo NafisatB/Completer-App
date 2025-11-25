@@ -64,21 +64,17 @@ class SidebarButtonComponent extends HTMLElement {
     this._updateFromAttributes();
 
     this.btnEl.addEventListener("click", () => {
-      // Find the top-level sidebar container
       const sidebarContainer = this.closest(".sidebar-area");
 
       if (sidebarContainer) {
-        // Remove active from all buttons in the sidebar
         const allButtons = sidebarContainer.querySelectorAll("sidebar-btn-component");
         allButtons.forEach(btn => {
           btn.shadowRoot.querySelector(".sidebar-btn-container").classList.remove("active");
         });
       }
 
-      // Activate this button
       this.btnEl.classList.add("active");
 
-      // Dispatch click for external listeners
       this.dispatchEvent(new MouseEvent("click", { bubbles: true, composed: true }));
     });
   }

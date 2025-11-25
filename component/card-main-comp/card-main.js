@@ -9,7 +9,7 @@ class CardComponent extends HTMLElement {
     const value = this.getAttribute('value') || '0';
     const subtext = this.getAttribute('subtext') || '';
     const icon = this.getAttribute('icon') || '';
-    const iconBg = this.getAttribute('icon-bg') || '#155dfc'; // default background
+    const iconBg = this.getAttribute('icon-bg') || '#155dfc'; 
 
     this.shadowRoot.innerHTML = `
       <style>

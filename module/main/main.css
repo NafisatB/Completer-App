@@ -2,16 +2,15 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* space between header and cards */
+    gap: 30px; 
     font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Header styles */
 .dashboard-header {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    align-items: left; /* center header content */
+    align-items: left;
     text-align: left;
 }
 
@@ -27,10 +26,10 @@
     color: oklch(0.446 0.03 256.802);
 }
 
-/* Cards container */
+
 .dashboard-cards {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap; /* allow wrapping on smaller screens */
-    justify-content: center; /* center the cards horizontally */
+    flex-wrap: wrap; 
+    justify-content: center; 
 }
