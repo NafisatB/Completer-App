@@ -1,6 +1,74 @@
 <link rel="stylesheet" href="/module/sidebar/sidebar.css" />
+<script type="module" src="../../component/sidebar-btn-comp/sidebar-btn.js"></script>
 <section class="sidebar-area">
-    content
+    
+<div class="sidebar__header">
+    <div class="sidebar__logo__container">
+    <div class="sidebar__logo">
+    <img src="/assets/images/icons-dashboard/svg/checkbox1.svg" alt="">
+   </div>
+    <h4>TaskMaster</h4>
+    </div>
+    <div><img src="/assets/images/icons-dashboard/svg/arrowLeft.svg" alt=""></div>
+</div>
+
+<div class="user__detail__container">
+   <div class="user__logo"><p>NB</p></div>
+   <div class="user__detail">
+    <p>Babamusa Nafisat</p>
+    <span>nafisatbabamusa@outlook.com</span>
+   </div> 
+</div>
+      
+<div>
+    <div>
+        <sidebar-btn-component
+        icon="/assets/images/icons-dashboard/svg/dashboard.svg"
+        text="Dashboard"
+        style="margin-top: 10px"
+        ></sidebar-btn-component>
+    </div>
+
+    <div>
+        <sidebar-btn-component
+        icon="/assets/images/icons-dashboard/svg/checkbox_2.svg"
+        text="Tasks"
+        ></sidebar-btn-component>
+    </div>
+
+    <div>
+        <sidebar-btn-component
+        icon="/assets/images/icons-dashboard/svg/community.svg"
+        text="Community"
+        ></sidebar-btn-component>
+    </div>
+
+    <div>
+        <sidebar-btn-component
+        icon="/assets/images/icons-dashboard/svg/dollar_2.svg"
+        text="Expenses"
+        ></sidebar-btn-component>
+    </div>
+
+    <div>
+        <sidebar-btn-component
+        icon="/assets/images/icons-dashboard/svg/note_2.svg"
+        text="Notes"
+        ></sidebar-btn-component>
+    </div>
+
+    <div>
+        <sidebar-btn-component
+        icon="/assets/images/icons-dashboard/svg/setting.svg"
+        text="Settings"
+        ></sidebar-btn-component>
+    </div>
+</div>
+
+<footer class="_root__footer">
+    <img src="/assets/images/icons-dashboard/svg/logout.svg" alt="">
+    <p>Logout</p>
+</footer>
 </section>
 <script src="/module/sidebar/sidebar.js">
 </script>

@@ -1,0 +1,23 @@
+.dashboard__container {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__container > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* space between h1 and p */
+}
+
+.dashboard__container h1 {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.dashboard__container p {
+    margin: 0;
+    line-height: 1.5;
+    color: oklch(0.446 0.03 256.802)
+}

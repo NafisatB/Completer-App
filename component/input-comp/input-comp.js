@@ -35,6 +35,7 @@ class InputComponent extends HTMLElement {
         .input-field img {
           width: 20px;
           height: 20px;
+          color: #999;
         }
       </style>
 
