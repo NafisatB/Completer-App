@@ -53,25 +53,4 @@
     background-color: #fff;
     border-right: 1px solid oklch(0.872 0.01 258.338);
 }
-._root__footer {
-     display: flex;
-    align-items: center;        /* vertically align icon + text */
-    gap: 12px;                  /* spacing between icon + text */
-
-    position: fixed;
-    bottom: 0;
-    width: 249px;
-    height: 75px;
-    background-color: #ffffff;
-    border-top: 1px solid oklch(0.872 0.01 258.338);
-    padding: 0 20px;           
-}
-
-._root__footer p {
-    margin: 0;
-    font-size: 15px;
-    font-weight: 500;
-    color: rgb(193, 0, 22);
-    cursor: default;
-}
 

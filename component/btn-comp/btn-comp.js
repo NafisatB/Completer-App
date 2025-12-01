@@ -1,6 +1,7 @@
 class ButtonComponent extends HTMLElement {
+
   static get observedAttributes() {
-    return ["text", "id", "icon"];
+    return ["text", "id", "icon", "disabled"];
   }
 
   constructor() {
@@ -10,18 +11,18 @@ class ButtonComponent extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
-          display: flex;
+          display: inline-block;
           width: var(--btn-width, auto);
           height: var(--btn-height, auto);
         }
 
-        .btn-container {
+        button {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
           box-sizing: border-box;
-          padding: var(--btn-padding, 8px);
+          padding: var(--btn-padding, 8px 14px);
           border-radius: var(--btn-radius, 6px);
           background: var(--btn-bg, #eee);
           color: var(--btn-color, #000);
@@ -31,76 +32,82 @@ class ButtonComponent extends HTMLElement {
           height: 100%;
           min-height: var(--btn-min-height, 38px);
           font: inherit;
+          outline: none;
+          transition: transform 0.05s ease, background 0.2s ease;
         }
 
-        .btn-container img {
+        button:active {
+          transform: scale(0.97);
+        }
+
+        button:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        img {
           width: var(--icon-size, 20px);
           height: var(--icon-size, 20px);
-          object-fit: contain;
         }
 
-        .btn-container span {
-          display: inline-block;
-          line-height: 1;
+        span {
+          white-space: nowrap;
         }
       </style>
 
-      <button class="btn-container" type="button">
-        <img alt="">
+      <button type="button">
+        <img hidden />
         <span></span>
       </button>
     `;
 
+    this.btn = this.shadowRoot.querySelector("button");
     this.textEl = this.shadowRoot.querySelector("span");
-    this.imgEl = this.shadowRoot.querySelector("img");
-    this.btnEl = this.shadowRoot.querySelector("button");
+    this.iconEl = this.shadowRoot.querySelector("img");
 
-    this.btnEl.addEventListener("click", () => {
-      this.dispatchEvent(new MouseEvent("click", { bubbles: true, composed: true }));
+    /* ✅ Bubble click properly */
+    this.btn.addEventListener("click", (e) => {
+      if (this.hasAttribute("disabled")) return;
+      this.dispatchEvent(new Event("click", { bubbles: true, composed: true }));
     });
   }
 
   connectedCallback() {
-    this._updateFromAttributes();
-
-    if (this.hasAttribute("onclick")) {
-      const handler = this.getAttribute("onclick");
-      this.addEventListener("click", (e) => {
-        new Function(handler).call(this, e);
-      });
-    }
+    this._syncAll();
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this._updateAttr(name, newVal);
+    this._sync(name, newVal);
   }
 
-  _updateFromAttributes() {
-    this._updateAttr("text", this.getAttribute("text"));
-    this._updateAttr("id", this.getAttribute("id"));
-    this._updateAttr("icon", this.getAttribute("icon"));
+  _syncAll() {
+    ButtonComponent.observedAttributes.forEach(attr => {
+      this._sync(attr, this.getAttribute(attr));
+    });
   }
 
-  _updateAttr(name, value) {
-    switch (name) {
+  _sync(name, value) {
+    switch(name) {
+
       case "text":
-        this.textEl.textContent = value ?? "";
-        this.textEl.style.display = value ? "inline-block" : "none";
-        break;
-
-      case "id":
-        if (value) this.btnEl.id = value;
-        else this.btnEl.removeAttribute("id");
+        this.textEl.textContent = value || "";
         break;
 
       case "icon":
         if (value) {
-          this.imgEl.src = value;
-          this.imgEl.style.display = "inline-block";
+          this.iconEl.src = value;
+          this.iconEl.hidden = false;
         } else {
-          this.imgEl.removeAttribute("src");
-          this.imgEl.style.display = "none";
+          this.iconEl.hidden = true;
         }
+        break;
+
+      case "id":
+        if (value) this.btn.id = value;
+        break;
+
+      case "disabled":
+        this.btn.disabled = value !== null;
         break;
     }
   }

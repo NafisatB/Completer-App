@@ -1,10 +1,16 @@
 .dashboard__container {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px; 
-    font-family: ui-sans-serif, system-ui, sans-serif;
+  padding: clamp(12px, 3vw, 30px);   
+  max-width: 1420px;
+  width: 100%;                      
+  margin: 0 auto;                    
+  
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 3vw, 30px);
+
+  font-family: ui-sans-serif, system-ui, sans-serif;
 }
+
 
 .dashboard-header {
     display: flex;
@@ -29,7 +35,14 @@
 
 .dashboard-cards {
     display: flex;
-    gap: 12px;
+    gap: 20px;
     flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+.dashboard__event{
+    display: flex;
+   gap: 25px;
+   flex-wrap: wrap; 
     justify-content: center; 
 }

@@ -1,13 +1,12 @@
 class InputComponent extends HTMLElement {
   static get observedAttributes() {
-    return ["label", "type", "id", "placeholder", "icon"];
+    return ["label", "type", "id", "placeholder", "icon", "value", "required"];
   }
 
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
 
-    // Initial structure
     this.shadowRoot.innerHTML = `
       <style>
         .input-container {
@@ -16,7 +15,7 @@ class InputComponent extends HTMLElement {
           gap: 5px;
         }
 
-       .input-field {
+        .input-field {
           display: flex;
           align-items: center;
           gap: 8px;
@@ -30,12 +29,13 @@ class InputComponent extends HTMLElement {
           border: none;
           outline: none;
           width: 100%;
+          font: inherit;
         }
 
         .input-field img {
           width: 20px;
           height: 20px;
-          color: #999;
+          display: none;
         }
       </style>
 
@@ -53,24 +53,53 @@ class InputComponent extends HTMLElement {
     this.inputEl = this.shadowRoot.querySelector("input");
   }
 
-  // Called when attributes change
+  // Expose value
+  get value() {
+    return this.inputEl.value;
+  }
+
+  set value(val) {
+    this.inputEl.value = val;
+  }
+
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case "label":
-        this.labelEl.textContent = newValue;
+        this.labelEl.textContent = newValue || "";
         break;
+
       case "type":
-        this.inputEl.type = newValue;
+        this.inputEl.type = newValue || "text";
         break;
+
       case "id":
         this.inputEl.id = newValue;
         this.labelEl.setAttribute("for", newValue);
         break;
+
       case "placeholder":
-        this.inputEl.placeholder = newValue;
+        this.inputEl.placeholder = newValue || "";
         break;
+
       case "icon":
-        this.imgEl.src = newValue;
+        if (newValue) {
+          this.imgEl.src = newValue;
+          this.imgEl.style.display = "block";
+        } else {
+          this.imgEl.style.display = "none";
+        }
+        break;
+
+      case "value":
+        this.inputEl.value = newValue;
+        break;
+
+      case "required":
+        if (newValue !== null) {
+          this.inputEl.setAttribute("required", "");
+        } else {
+          this.inputEl.removeAttribute("required");
+        }
         break;
     }
   }

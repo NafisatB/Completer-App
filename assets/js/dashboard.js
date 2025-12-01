@@ -3,7 +3,7 @@
 
 function renderComponents(elements){
 
-  // loop through this array list elements
+  // loop through this array like elements
   for (let element of elements) {
     // get the specific attributes that we stored the path to the component/module in
     const dataImport = element.getAttribute("data-import");
@@ -45,3 +45,4 @@ function loadComponentScripts(element){
         element.appendChild(newScript)
     }
 }
+

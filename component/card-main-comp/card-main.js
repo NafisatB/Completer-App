@@ -16,9 +16,10 @@ class CardComponent extends HTMLElement {
         .dashboard-card {
           background-color: #fff;
           border-radius: 12px;
-          border: 2px solid #eaeaea;
-          padding: 16px;
-          width: 180px;
+          border: 1px solid oklch(0.872 0.01 258.338);
+          padding: 20px;
+          width: 200px;
+          height: 135px;
           box-shadow: 0 2px 8px rgba(0,0,0,0.05);
           display: flex;
           flex-direction: column;
@@ -31,14 +32,20 @@ class CardComponent extends HTMLElement {
           align-items: center;
           margin-bottom: 12px;
         }
+
+        .dashboard-card:hover {
+          background-color: #fff;
+          transform: translateY(-1.5px) scale(1.01);
+          box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+        }
         .card-title {
           font-size: 14px;
           font-weight: 500;
           color: #333;
         }
         .card-icon img {
-          width: 28px;
-          height: 28px;
+          width: 18px;
+          height: 18px;
           border-radius: 6px;
           background-color: ${iconBg};
           padding: 4px;

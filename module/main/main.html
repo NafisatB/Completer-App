@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="/module/main/main.css">
 <script type="module" src="../../component/card-main-comp/card-main.js"></script>
+<script type="module" src="../../component/task-component/task-component.js"></script>
+<script type="module" src="../../component/main-action-btn/main-action-comp.js"></script>
 
 <div class="dashboard__container">
 
@@ -41,5 +43,74 @@
       
     </card-component>
   </div>
+  <div  class="dashboard__event">
+  <dashboard-event
+  title="Recent Tasks"
+  icon-color="#0000ff"
+  icon-svg='<path d="M12 6v6l4 2" stroke-width="2"/><circle cx="12" cy="12" r="10" stroke-width="2"/>'>
+<div class="content_in_recent-tasks"
+     style="
+       display:flex;
+       flex-direction:column;
+       align-items:center;
+       justify-content:center;
+       height:300px;
+       width:100%;
+       text-align:center;
+     ">
 
+  <svg style="width:60px;height:60px;color:#cbd5f5;margin-bottom:12px;"
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       aria-hidden="true">
+    <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"/>
+    <path d="m9 11 3 3L22 4"/>
+  </svg>
+
+  <span style="font-size:13px;color:#9ca3af;">
+    No Tasks yet
+  </span>
+
+</div>
+
+</dashboard-event>
+
+<dashboard-event
+  title="Quick Actions"
+  icon-color="oklch(0.627 0.194 149.214)"
+  icon-svg="<path d='M16 7h6v6' stroke-width='2'/><path d='m22 7-8.5 8.5-5-5L2 17' stroke-width='2'/>">
+
+  <div class="action-buttons" style="display: flex; flex-direction: column; gap: 12px;">
+    <action-btn-component
+    icon-svg='<path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" stroke-width="2"/>/><path d="m9 11 3 3L22 4" stroke-width="2"/>'
+    icon-color="#4780fc"
+    icon-bg="#dbeafe"
+    title="Create New Task"
+    subtext="Add a task to your list">
+    </action-btn-component>
+
+    <action-btn-component
+    icon-svg='<line x1="12" x2="12" y1="2" y2="22" stroke-width="2"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-width="2"/>'
+    icon-color="#45b5cf"
+    icon-bg="#cefafe"
+    title="Track Expense"
+    subtext="Record a new expense">
+    </action-btn-component>
+
+    <action-btn-component
+    icon-svg='<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" stroke-width="2"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8" stroke-width="2"/><path d="M16 13H8"/><path d="M16 17H8" stroke-width="2"/>'
+    icon-color="#00a63e"
+    icon-bg="#dbfce7"
+    title="Write Note"
+    subtext="Capture your thoughts">
+    </action-btn-component>
+  </div>
+</dashboard-event>
+
+  </div>
 </div>

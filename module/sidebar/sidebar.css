@@ -55,15 +55,17 @@
 }
 
 .user__logo {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: linear-gradient(to bottom right, #155dfc, #4f39f6);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+  width: 40px; 
+  height: 40px;  
+  aspect-ratio: 1 / 1; 
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #155dfc, #4f39f6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  line-height: 1;         
 }
 
 .user__detail {
@@ -85,12 +87,40 @@
 }
 
 sidebar-btn-component {
-    display: flex;                /* Make it a flex container */
-    align-items: center;          /* Vertically center icon + text */
-    justify-content: flex-start;  /* Align content to the left */
-    gap: 8px;                     /* Space between icon and text */
-    width: 100%;                  /* Fill sidebar width */
-    min-height: 40px;             /* Match other sidebar items */
+    display: flex;                
+    align-items: center;          
+    justify-content: flex-start;  
+    gap: 8px;                     
+    width: 100%;                  
+    min-height: 40px;             
     box-sizing: border-box;
+}
+
+._root__footer {
+     display: flex;
+    align-items: center;        
+    gap: 12px;                  
+
+    position: fixed;
+    bottom: 0;
+    width: 249px;
+    height: 75px;
+    background-color: #ffffff;
+    border-top: 1px solid oklch(0.872 0.01 258.338);
+    padding: 0 20px;           
+}
+
+.logout__btn{
+    display: flex;
+    gap: 20px;
+    border: none;
+    background: transparent;
+}
+._root__footer p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(193, 0, 22);
+    cursor: default;
 }
 

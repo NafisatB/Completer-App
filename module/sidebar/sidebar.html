@@ -65,10 +65,18 @@
     </div>
 </div>
 
-<footer class="_root__footer">
+<footer class="_root__footer">   
+ <button class="logout__btn" onclick="logout()">
     <img src="/assets/images/icons-dashboard/svg/logout.svg" alt="">
     <p>Logout</p>
+</button>
+
 </footer>
 </section>
+<script>function logout(){
+  localStorage.removeItem("activeUser");
+  window.location.href = "/module/form/login/login.html";
+}
+</script>
 <script src="/module/sidebar/sidebar.js">
 </script>

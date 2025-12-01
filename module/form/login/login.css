@@ -19,7 +19,7 @@
 .login-btn {
   display: flex;
   align-items: center;
-  gap: 12px;         /* optional spacing */
+  gap: 12px;         
 }
 .btn-box{
   width: 48%;
