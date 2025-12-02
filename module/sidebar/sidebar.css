@@ -3,7 +3,7 @@
     position: fixed;            
     top: 0;
     left: 0;
-    height: 100vh;              
+    height: 100%;              
     width: 250px;               
     background-color: #fff;
     display: flex;              
@@ -12,6 +12,7 @@
     border-right: 1px solid oklch(0.872 0.01 258.338);
     overflow-y: auto;           
     box-sizing: border-box;
+    font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
 .sidebar__header {
@@ -94,13 +95,13 @@ sidebar-btn-component {
     width: 100%;                  
     min-height: 40px;             
     box-sizing: border-box;
+
 }
 
 ._root__footer {
      display: flex;
     align-items: center;        
     gap: 12px;                  
-
     position: fixed;
     bottom: 0;
     width: 249px;
