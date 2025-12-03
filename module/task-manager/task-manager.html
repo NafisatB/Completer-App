@@ -3,31 +3,63 @@
 <div class="task__container" id="taskPage">
 
   <div class="task__header">
-    <!-- <div class="task__logo__container">
+    <div class="task__logo__container">
       <div class="task__logo">
-          
+         <svg xmlns="http://www.w3.org/2000/svg"
+          width="20" height="20" viewBox="0 0 24 24" 
+          fill="none" stroke="white" stroke-width="2" 
+          stroke-linecap="round" stroke-linejoin="round" 
+          class="lucide lucide-square-check-big h-5 w-5 text-blue-600" 
+          aria-hidden="true"><path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"/>
+          <path d="m9 11 3 3L22 4"/>
+        </svg>
       </div>
+       <div class="task__text">
+        <p>Task Management</p>
+        <span>Manage and track your tasks</span>
+       </div>
     </div>
-        <h2>Task Management</h2>
-        <span>Manage and track your tasks</span> -->
+       
   </div>
 
   <div class="btn_task-management">
-    <!-- <button>My Tasks</button>
-    <button>AI Summary</button> -->
+    <button class="task__summary_btn active">
+    <img src="/assets/images/icons-dashboard/svg/checkbox_3.svg"
+     alt=""
+     style="width:16px; height:16px; margin-right: 6px;">
+       My Tasks
+    <button class="task__summary_btn"> 
+       <img src="/assets/images/icons-dashboard/svg/summary_trend.svg"
+     alt="Summary"
+     style="width:16px; height:16px; margin-right: 6px;">
+       AI Summary
+      </button>
   </div>
 
-  <div class="task__stat add__button">
-    <!-- <div class="task__card">
-
+  <div class="task__stat">
+    <div class="task__card"> 
+    <div class="task__field" id="active__task">
+        <value>0</value>
+        <span>Active tasks</span>
+    </div>
+    <div class="task__field" id="task__completed">
+        <value>0</value>
+        <span>Completed</span>
+    </div>
     </div>
     <div>
       <button>+ Add Task </button>
-    </div> -->
+  </div>
   </div>
 
   <div class="task__history">
-
+    <div class="task__history__comment">
+      <div class="task__history__circle"></div>
+      <div class="task__history__text">
+        <span>No tasks yet</span>
+        <span>Click "Add Task" to create your first task</span>
+      </div>
+    </div>
   </div>
 </div>
    
