@@ -72,10 +72,10 @@
 }
 
 .task__summary_btn {
-    width: 360px;
-    height: 30px;
-    border: none;
-    display: flex;
+ width: 360px;
+  height: 30px;
+  border: none;
+  display: flex;
   align-items: center;    
   border-radius: 8px;
   cursor: pointer;
