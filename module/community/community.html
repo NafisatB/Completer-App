@@ -1,25 +1,51 @@
 <link rel="stylesheet" href="/module/community/community.css">
 
-<div class="main-content">
-  <!-- Community Board -->
-  <div id="community">
-    <div class="board-header">
-      <h2>Community Board</h2>
-      <p>Collaborate with your team</p>
+<div class="community__container" id="community__page">
+     <div class="community__header">
+      <div class="community__logo__container">
+      <div class="community__logo">
+         <svg xmlns="http://www.w3.org/2000/svg" 
+         width="20" height="20" viewBox="0 0 24 24" 
+         fill="none" stroke="white" stroke-width="2" 
+         stroke-linecap="round" stroke-linejoin="round" 
+         class="lucide lucide-users h-5 w-5 flex-shrink-0" 
+         aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+         <path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+         <circle cx="9" cy="7" r="4"/>
+        </svg>
+      </div>
+       <div class="community__text">
+        <p>Community Board</p>
+        <span>Collaborate with your team</span>
+       </div>
     </div>
+     </div>
 
-    <div class="post-input">
-      <textarea placeholder="Share an update, ask for help, or celebrate a win..."></textarea>
-      <button>Post</button>
-    </div>
+    <div class="community__task">
+       <div class="community__history AI__help">
+        <div class="community__user__detail__container">
+        <div class="community__user__logo">BN</div>
+          <input type="text" placeholder="Share an update, ask for help, or celebrate a win... (Mention @comsq to get AI help)">
+        </div> 
 
-    <div class="posts-feed">
-      <p>No posts yet. Be the first to share something!</p>
-    </div>
+        <button>
+          <img src="/assets/images/icons-dashboard/svg/send.svg" alt="" style="width: 16px; height: 16px;">
+          Post
+        </button>
+      </div>
   </div>
 
-  <!-- Other content areas -->
-  <div id="tasks" style="display:none;">
-    <h2>Tasks Page</h2>
+  <div class="community__history comment">
+    <div class="community__history__comment">
+      <div class="community__history__icon">
+        <img src="/assets/images/icons-dashboard/svg/comment.svg" alt=""
+         style="width: 45px; height: 45px; color: gray;">
+        
+      </div>
+      <div class="community__history__text">
+        <span>No posts yet. Be the first to share something!</span>
+      </div>
+    </div>
   </div>
+    </div>
 </div>

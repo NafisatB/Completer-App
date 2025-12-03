@@ -1,40 +1,179 @@
-.main-content {
-  padding: 20px;
-  background-color: #f9f9f9;
-  flex: 1;
-}
-
-.board-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.post-input {
-  display: flex;
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.post-input textarea {
-  flex: 1;
-  padding: 10px;
+.community__container {
+  width: 1040px;
+  height: 500px;
+  box-sizing: border-box;
+  border: 1px solid oklch(0.872 0.01 258.338);
   border-radius: 8px;
-  border: 1px solid #ccc;
+  box-shadow: 1px 2px 8px rgba(0,0,0,0.05);
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
-.post-input button {
-  background-color: #4f39f6;
-  color: white;
-  padding: 0 20px;
+.community__header{
+  width: 100%;
+  height: 95px;
+  border-bottom: 1px solid oklch(0.872 0.01 258.338);
+  background-color: #f9fafb;
+ 
+}
+
+.community__logo__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: default;
+    margin: 20px;
+}
+
+.community__logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #155dfc, #4f39f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.community__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.8;
+}
+
+
+.community__text > p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  list-style: 1.5;
+}
+
+.community__text span {
+  font-size: 13px;
+  color: gray;
+}
+
+.community__task{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.community__history{
+  width: 980px;
+  height: 150px;
+  border: 1px solid oklch(0.872 0.01 258.338);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 0 auto;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;      
+  justify-content: flex-start;
+  margin-top: 10px; 
+ 
+}
+
+.community__history.comment{
+  border: 1px dashed oklch(0.872 0.01 258.338);
+  margin-top: 5px; 
+}
+
+.community__history__comment{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;      
+  padding: 10px; 
+  gap: 16px;
+  
+}
+
+.community__history__text{
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #64748B;
+}
+
+.community__user__detail__container {
+  display: flex;
+  align-self: flex-start;   
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 20px;
+  margin-top: 20px;
+  gap: 10px;
+  
+}
+
+.community__user__detail__container input {
+  width: 900px;
+  height: 50px;
+  padding: 2px 12px 12px 12px;
+  box-sizing: border-box;
   border: none;
+  outline: none;
+  background: transparent;
+}
+
+.community__user__detail__container input::placeholder {
+  color: gray;
+  font-size: 14px;
+ 
+}
+
+.community__user__detail__container input:focus {
+  border-radius: 12px;
+  border: 1px solid rgb(22, 22, 22);     
+  box-shadow: 0 4px 12px rgba(10, 205, 231, 0.6);
+}
+
+.community__user__logo {
+  width: 40px; 
+  height: 40px;  
+  aspect-ratio: 1 / 1; 
+  border-radius: 50%;
+  background: #2b7fff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  line-height: 1;         
+}
+
+.AI__help button{
+    background-color: #9dc0fa;
+  color: white;
+  width: 80px;
+  height: 33px;
+  border: none;
+  display: flex;
+  align-items: center;      /* vertically center content */
+  justify-content: center;  /* horizontally center content inside button */
+  gap: 8px;                 /* moderate space between text and icon */
   border-radius: 8px;
   cursor: pointer;
-}
-
-.posts-feed {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  min-height: 200px;
-  border: 1px solid #e0e0e0;
+  font-weight: 500;
+  font-size: 14px;
+  
+  /* Align button to the left of parent */
+  margin: 0;                /* remove auto centering */
+  align-self: flex-end; 
+  margin-right: 20px;
+  margin-top: 30px;
 }
