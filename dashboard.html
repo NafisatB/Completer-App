@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/global.css" />
-    <title>TaskMaster Dashboard</title>
+    <title>Completer App</title>
 </head>
 <body>
     <section class="_root">
@@ -20,16 +20,16 @@
       >
         sidebar
       </aside>
-      <main class="_root__main" 
-       data-import="/module/community/community.html"
-      ></main>
+      
+    <main id="dashboard" class="_root__main" 
+       >
+       <section id="dashboard-content" class="content active"  data-import="/module/main/main.html"></section>
+       <section id="task-content" class="content" data-import="/module/task-manager/task-manager.html"></section>
+       <section id="community-content" class="content" data-import="/module/community/community.html"></section>
+    </main>
     </section>
 
     <script src="/assets/js/dashboard.js"></script>
 
 </body>
 </html>
-
-data-import="/module/main/main.html"
-      data-import="/module/task-manager/task-manager.html"
-      data-import="/module/community/community.html"

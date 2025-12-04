@@ -1,48 +1,106 @@
-// Returns all element descendants of node that match selectors ([data-import]).
-// this returns an array like element that can be looped through
+// Load all components with data-import attribute
+const activeUser = localStorage.getItem("activeUser");
 
-function renderComponents(elements){
+if (!activeUser) {
+  window.location.href = "/index.html";
+}
 
-  // loop through this array like elements
-  for (let element of elements) {
-    // get the specific attributes that we stored the path to the component/module in
-    const dataImport = element.getAttribute("data-import");
-    
-    fetch(dataImport)
-      .then((res) => {
-          if(!res.ok){
-              throw "Not found"
-          }
-        return res.text();
-      })
-      .then((component) => {
-        element.innerHTML = component;
-        loadComponentScripts(element)
-        const subComponents = element.querySelectorAll("[data-import]");
-        renderComponents(subComponents)
-      })
-      .catch(() => {
-        element.innerHTML = `<h4>Component not found</h4>`;
-      });
+
+async function renderComponents(elements) {
+  for (const element of elements) {
+    const path = element.getAttribute("data-import");
+
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error("Component not found");
+
+      const html = await res.text();
+      element.innerHTML = html;
+
+      reloadScripts(element);
+
+      // Load nested components (recursive support)
+      const children = element.querySelectorAll("[data-import]");
+      if (children.length > 0) {
+        await renderComponents(children);
+      }
+
+      // Initialize dashboard switching after sidebar loads
+      initDashboardSwitching();
+
+    } catch (err) {
+      element.innerHTML = "<h4>Component not found</h4>";
+      console.error("Error loading:", path, err);
+    }
   }
 }
 
-const componentElements = document.querySelectorAll("[data-import]");
-renderComponents(componentElements)
+// Reload JS inside loaded components
+function reloadScripts(container) {
+  const scripts = container.querySelectorAll("script");
 
-function loadComponentScripts(element){
-    const scripts = element.querySelectorAll("script");
-    for (let script of scripts) {
-        const newScript = document.createElement('script');
-        if(script.src){
-            newScript.src = script.src;
-        }
-        if(script.textContent){
-            newScript.textContent = script.textContent;
-        }
-        script.remove()
-        
-        element.appendChild(newScript)
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement("script");
+
+    if (oldScript.src) {
+      newScript.src = oldScript.src;
+    } else {
+      newScript.textContent = oldScript.textContent;
     }
+
+    oldScript.replaceWith(newScript);
+  });
 }
 
+// Initialize components
+document.addEventListener("DOMContentLoaded", () => {
+  const components = document.querySelectorAll("[data-import]");
+  renderComponents(components);
+});
+
+
+// ========== DASHBOARD ROUTING LOGIC ==========
+function initDashboardSwitching() {
+
+  const dashboardBtn = document.getElementById("dashboard-btn");
+  const taskBtn = document.getElementById("task-btn");
+  const communityBtn = document.getElementById("community-btn");
+
+  const dashboardContent = document.getElementById("dashboard-content");
+  const taskContent = document.getElementById("task-content");
+  const communityContent = document.getElementById("community-content");
+
+  // Wait until sidebar is loaded
+  if (!dashboardBtn || !taskBtn || !communityBtn) return;
+
+  const buttons = [dashboardBtn, taskBtn, communityBtn];
+  const contents = [dashboardContent, taskContent, communityContent];
+
+  function resetView() {
+    contents.forEach(c => c.classList.remove("active"));
+    buttons.forEach(b => b.classList.remove("active"));
+  }
+
+  dashboardBtn.onclick = () => {
+    resetView();
+    dashboardContent.classList.add("active");
+    dashboardBtn.classList.add("active");
+  };
+
+  taskBtn.onclick = () => {
+    resetView();
+    taskContent.classList.add("active");
+    taskBtn.classList.add("active");
+  };
+
+  communityBtn.onclick = () => {
+    resetView();
+    communityContent.classList.add("active");
+    communityBtn.classList.add("active");
+  };
+
+  // Auto-activate Dashboard if nothing is selected
+  if (!buttons.some(btn => btn.classList.contains("active"))) {
+    dashboardBtn.click();
+  }
+}

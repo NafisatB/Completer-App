@@ -55,7 +55,7 @@
     box-sizing: border-box;
 }
 
-.user__logo {
+.user__logo_and_initial {
   width: 40px; 
   height: 40px;  
   aspect-ratio: 1 / 1; 

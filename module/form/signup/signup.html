@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="/module/form/signup/signup.css">
 <script type="module" src="../../../component/input-comp/input-comp.js"></script>
 <script type="module" src="../../../component/btn-comp/btn-comp.js"></script>
+<script src="/module/form/auth.js"></script>
+
 
 <div id="signup" class="login-container signup">
 <form action="" class="form-box ">
@@ -11,53 +13,53 @@
     label="Full Name*"
     type="text"
     id="fullName"
+    name="fullName"
     placeholder="John Doe"
     icon="../../../assets/images/user.png"
+    required
 >
 </input-component>
     <input-component
     label="Email Address*"
     type="email"
-    id="user_email"
+    id="email"
+    name="email"
+    required
     placeholder="hello@example.com"
     icon="../../../assets/images/envelope.svg"
 >
 
-</input-component> 
-<div>
-        <input-component
+  </input-component> 
+  <div>
+  <input-component
     label="Password*"
     type="password"
-    id="password"
+    id="signup_password"
+    name="password"
     placeholder="******"
     icon="../../../assets/images/padlock.svg"
-    
+    required
 >
-</input-component>
-<small id="parag__small">Password must be at least 6 characters long</small>
-</d iv>
-
-
-
-    <!-- <div data-import="/component/input/name.html"></div>
-    <div data-import="/component/input/email.html"></div>
-   <div data-import="/component/input/password.html"></div> -->
+   </input-component>
+   <small id="parag__small">Password must be at least 6 characters long</small>
+  </div>
   
    <div class="login-btn">
     <div class="btn-box">
-          <btn-component
+    <btn-component
      icon="../../../assets/images/help.svg"
         style="
     --btn-width:100%; 
     --btn-height:45px; 
     --btn-border-radius:50%;
      "
+     type="button"
      text="Help?" 
      />
     </div>
     <div  class="btn-box">
     <btn-component
-     id="signupBtn"
+     id="signupSubmitBtn"
      style="
     --btn-width:100%; 
     --btn-height:45px; 
@@ -72,3 +74,23 @@
   </div>
 </form>
 </div>
+
+<script>
+  const form = document.getElementById("signupForm");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const inputs = form.querySelectorAll("input-component");
+    let allValid = true;
+
+    inputs.forEach(input => {
+      if (!input.validate()) allValid = false;
+    });
+
+    if (!allValid) return;
+
+    // ✅ All inputs valid → proceed with signup logic
+    alert("All inputs are valid! Proceed with signup...");
+  });
+</script>
+<!-- <script src="./signup.js"></script> -->

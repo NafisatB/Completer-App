@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/module/form/login/login.css">
 <script type="module" src="../../../component/input-comp/input-comp.js"></script>
 <script type="module" src="../../../component/btn-comp/btn-comp.js"></script>
+<script src="/module/form/auth.js"></script>
+
 
 <div id="login" class="login-container login">
 <form action="" class="form-box ">
@@ -11,15 +13,17 @@
     id="user_email"
     placeholder="hello@example.com"
     icon="../../../assets/images/envelope.svg"
+    required
 >
 
 </input-component>
     <input-component
     label="Password*"
     type="password"
-    id="password"
+    id="login_password"
     placeholder="******"
     icon="../../../assets/images/padlock.svg"
+    required
 >
 </input-component>
    <div class="login-btn">
@@ -31,12 +35,14 @@
     --btn-height:45px; 
     --btn-border-radius:50%;
      "
+     type="button"
      text="Help?" 
     
      />
     </div>
     <div class="btn-box">
     <btn-component
+    id="loginSubmitBtn"
      style="
     --btn-width:100%; 
     --btn-height:45px; 

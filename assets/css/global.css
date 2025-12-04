@@ -54,3 +54,13 @@
     border-right: 1px solid oklch(0.872 0.01 258.338);
 }
 
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+
+

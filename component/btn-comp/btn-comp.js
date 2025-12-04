@@ -1,7 +1,7 @@
 class ButtonComponent extends HTMLElement {
 
   static get observedAttributes() {
-    return ["text", "id", "icon", "disabled"];
+    return ["text", "icon", "disabled", "type"];
   }
 
   constructor() {
@@ -21,7 +21,6 @@ class ButtonComponent extends HTMLElement {
           align-items: center;
           justify-content: center;
           gap: 8px;
-          box-sizing: border-box;
           padding: var(--btn-padding, 8px 14px);
           border-radius: var(--btn-radius, 6px);
           background: var(--btn-bg, #eee);
@@ -33,7 +32,7 @@ class ButtonComponent extends HTMLElement {
           min-height: var(--btn-min-height, 38px);
           font: inherit;
           outline: none;
-          transition: transform 0.05s ease, background 0.2s ease;
+          transition: transform .05s ease, background .2s ease;
         }
 
         button:active {
@@ -41,7 +40,7 @@ class ButtonComponent extends HTMLElement {
         }
 
         button:disabled {
-          opacity: 0.6;
+          opacity: .6;
           cursor: not-allowed;
         }
 
@@ -49,13 +48,9 @@ class ButtonComponent extends HTMLElement {
           width: var(--icon-size, 20px);
           height: var(--icon-size, 20px);
         }
-
-        span {
-          white-space: nowrap;
-        }
       </style>
 
-      <button type="button">
+      <button>
         <img hidden />
         <span></span>
       </button>
@@ -65,10 +60,14 @@ class ButtonComponent extends HTMLElement {
     this.textEl = this.shadowRoot.querySelector("span");
     this.iconEl = this.shadowRoot.querySelector("img");
 
-    /* ✅ Bubble click properly */
-    this.btn.addEventListener("click", (e) => {
+    // ✅ FIX: enable real form submission from shadow DOM
+    this.btn.addEventListener("click", () => {
       if (this.hasAttribute("disabled")) return;
-      this.dispatchEvent(new Event("click", { bubbles: true, composed: true }));
+
+      const form = this.closest("form");
+      if (form && this.btn.type === "submit") {
+        form.requestSubmit();
+      }
     });
   }
 
@@ -87,7 +86,7 @@ class ButtonComponent extends HTMLElement {
   }
 
   _sync(name, value) {
-    switch(name) {
+    switch (name) {
 
       case "text":
         this.textEl.textContent = value || "";
@@ -102,8 +101,8 @@ class ButtonComponent extends HTMLElement {
         }
         break;
 
-      case "id":
-        if (value) this.btn.id = value;
+      case "type":
+        this.btn.type = value || "submit";
         break;
 
       case "disabled":

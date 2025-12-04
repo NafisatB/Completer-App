@@ -13,7 +13,7 @@
 </div>
 
 <div class="user__detail__container">
-   <div class="user__logo">B</div>
+   <div class="user__logo_and_initial">B</div>
    <div class="user__detail">
     <p>Babamusa Nafisat</p>
     <span>nafisatbabamusa@outlook.com</span>
@@ -23,6 +23,7 @@
 <div>
     <div>
         <sidebar-btn-component
+        id="dashboard-btn"
         icon="/assets/images/icons-dashboard/svg/dashboard.svg"
         text="Dashboard"
         style="margin-top: 10px"
@@ -31,6 +32,7 @@
 
     <div>
         <sidebar-btn-component
+        id="task-btn"
         icon="/assets/images/icons-dashboard/svg/checkbox_3.svg"
         text="Tasks"
         ></sidebar-btn-component>
@@ -38,6 +40,7 @@
 
     <div>
         <sidebar-btn-component
+        id="community-btn"
         icon="/assets/images/icons-dashboard/svg/community.svg"
         text="Community"
         ></sidebar-btn-component>
@@ -45,6 +48,7 @@
 
     <div>
         <sidebar-btn-component
+        id="expenses-btn"
         icon="/assets/images/icons-dashboard/svg/dollar.svg"
         text="Expenses"
         ></sidebar-btn-component>
@@ -52,6 +56,7 @@
 
     <div>
         <sidebar-btn-component
+        id="notes-btn"
         icon="/assets/images/icons-dashboard/svg/note_2.svg"
         text="Notes"
         ></sidebar-btn-component>
@@ -59,6 +64,7 @@
 
     <div>
         <sidebar-btn-component
+        id="setting-btn"
         icon="/assets/images/icons-dashboard/svg/setting.svg"
         text="Settings"
         ></sidebar-btn-component>
@@ -73,10 +79,10 @@
 
 </footer>
 </section>
-<script>function logout(){
-  localStorage.removeItem("activeUser");
-  window.location.href = "/module/form/login/login.html";
+<script>
+function logout(){
+ localStorage.removeItem("activeUser");
+ window.location.href = "/index.html";
 }
 </script>
-<script src="/module/sidebar/sidebar.js">
-</script>
+

@@ -8,6 +8,7 @@ class SidebarButtonComponent extends HTMLElement {
     const text = this.getAttribute('text') || '';
     const icon = this.getAttribute('icon') || '';
     const id = this.getAttribute('id') || '';
+    
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -19,6 +20,7 @@ class SidebarButtonComponent extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: flex-start;
+          text-decoration: none;
           gap: 8px;
           margin: 0 10px;
           padding: 0 20px;
@@ -49,7 +51,6 @@ class SidebarButtonComponent extends HTMLElement {
           background-color: #eff5fcff;
         }
       </style>
-
       <div class="sidebar-btn-container" ${id ? `id="${id}"` : ''}>
         ${icon ? `<img src="${icon}" alt="Icon">` : ''}
         ${text ? `<span>${text}</span>` : ''}
