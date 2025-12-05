@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 999;
@@ -265,7 +265,7 @@
   align-items: center;
 }
 
-.task__field value{
+.task__field strong{
     font-size: 30px;
   font-weight: 500;
 }
@@ -338,3 +338,12 @@
   align-items: center;
   color: #64748B;
 }
+
+
+  /* Completed task style */
+  .completed-task {
+    text-decoration: line-through;
+    opacity: 0.6;
+
+  }
+
