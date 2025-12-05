@@ -1,3 +1,155 @@
+/* ========= MODAL OVERLAY ========= */
+.task-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ========= MODAL CONTENT ========= */
+.task-modal-content {
+  background: #ffffff;
+  width: min(520px, 95%);
+  border-radius: 14px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+  font-family: system-ui, -apple-system, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ========= HEADER ========= */
+.task-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header-text h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.header-text p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.modal-close {
+  font-size: 14px;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #64748b;
+}
+
+.modal-close:hover {
+  background: #f1f5f9;
+}
+
+/* ========= FORM BODY ========= */
+.task-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.task-modal-body label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+/* ========= INPUTS ========= */
+.task-modal-body input,
+.task-modal-body textarea,
+.task-modal-body select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+
+.task-modal-body textarea {
+  resize: none;
+  height: 80px;
+}
+
+.task-modal-body input:focus,
+.task-modal-body textarea:focus,
+.task-modal-body select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,.15);
+}
+
+
+
+/* ========= GRID ROW ========= */
+.modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ========= FOOTER ========= */
+.task-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-radius: 4px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ========= BUTTONS ========= */
+.cancel-btn {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-btn:hover {
+  background: #1d4ed8;
+}
+
+
+
+
+
+
+/* ========= TASK PAGE ========= */
+
 .task__container{
   width: 1040px;
   height: 500px;

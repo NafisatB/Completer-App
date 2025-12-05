@@ -1,6 +1,58 @@
 <link rel="stylesheet" href="/module/task-manager/task-manager.css">
 <link rel="stylesheet" href="/assets/css/global.css">
 
+<!-- ================= MODAL ================= -->
+<div class="task-modal" id="taskModal">
+  <div class="task-modal-content">
+
+    <div class="task-modal-header">
+      <div>
+        <h3>✨ Create New Task</h3>
+        <p>Add a new task to your productivity list</p>
+      </div>
+      <span class="modal-close" id="closeModal">&times;</span>
+    </div>
+
+    <div class="task-modal-body">
+
+      <label>Title</label>
+      <div class="input-group">
+        <input type="text" id="taskTitle" placeholder="Enter task title">
+      </div>
+
+      <label>Description</label>
+      <textarea id="taskDesc" placeholder="Add task details..."></textarea>
+
+      <div class="modal-row">
+        <div>
+          <label>Priority</label>
+          <select id="taskPriority">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Due Date</label>
+          <input type="date" id="taskDate">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="task-modal-footer">
+      <button class="cancel-btn" id="cancelTask">Cancel</button>
+      <button class="create-btn" id="createTask">Create Task</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ========= TASK PAGE =========  -->
+
 <div class="task__container" id="task-content" class="content"> 
 
   <div class="task__header">
@@ -49,7 +101,7 @@
     </div>
     </div>
     <div>
-      <button>+ Add Task </button>
+      <button id="addTaskBtn">+ Add Task </button>
   </div>
   </div>
 
@@ -64,8 +116,66 @@
   </div>
 </div>
    
-   
-   
+   <script src="./task-manager.js"></script>
+   <script>
+    const modal = document.getElementById("taskModal");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const closeBtn = document.getElementById("closeModal");
+const cancelBtn = document.getElementById("cancelTask");
+const createBtn = document.getElementById("createTask");
+
+// OPEN MODAL
+addTaskBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+// CLOSE MODAL
+closeBtn.addEventListener("click", closeModal);
+cancelBtn.addEventListener("click", closeModal);
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+
+// ========== CREATE TASK FROM MODAL ==========
+createBtn.addEventListener("click", () => {
+
+  const title = document.getElementById("taskTitle").value.trim();
+  const description = document.getElementById("taskDesc").value.trim();
+  const priority = document.getElementById("taskPriority").value;
+  const date = document.getElementById("taskDate").value;
+
+  if (!title) return alert("Title is required");
+
+  const newTask = {
+    id: Date.now(),
+    title,
+    description,
+    priority,
+    date,
+    completed: false
+  };
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.push(newTask);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  closeModal();
+  clearModal();
+  renderTasks();    // your existing function
+  updateCounters(); // your existing function
+});
+
+// CLEAR FORM
+function clearModal() {
+  taskTitle.value = "";
+  taskDesc.value = "";
+  taskDate.value = "";
+  taskPriority.value = "Medium";
+}
+
+   </script>
    
    
    
